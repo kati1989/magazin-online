@@ -74,6 +74,8 @@ public class ViewClient {
     }
 
 
+
+
     public void adaugareProdusInCos() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Inscrie id-ul produsului:");
