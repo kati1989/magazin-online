@@ -1,0 +1,2 @@
+1,televizor,2000,2,127inch,linux
+2,televizor,3000,2,100,android

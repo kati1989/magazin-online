@@ -31,9 +31,7 @@ public class ControllerOrderDetails {
                 String line=scanner.nextLine();
                 orderDetails.add(new OrderDetails(line));
             }
-
-
-        }catch (Exception e){
+        } catch (Exception e){
             e.printStackTrace();
         }
 

@@ -16,9 +16,9 @@ public class ViewClient {
     private ControllerOrderDetails controllerOrderDetails;
 
     public ViewClient() {
-        controllerProducts = new ControllerProducts(Path.of("src", "com", "company", "resources", "products.txt").toString());
-        controllerOrders = new ControllerOrders(Path.of("src", "com", "company", "resources", "orders.txt").toString());
-        controllerOrderDetails = new ControllerOrderDetails(Path.of("src", "com", "company", "resources", "orderDetails.txt").toString());
+        controllerProducts = new ControllerProducts(Path.of("src","resources",   "products.txt").toString());
+        controllerOrders = new ControllerOrders(Path.of("src","resources",  "orders.txt").toString());
+        controllerOrderDetails = new ControllerOrderDetails(Path.of("src", "resources", "orderDetails.txt").toString());
 
         play();
     }
@@ -87,7 +87,7 @@ public class ViewClient {
             System.out.println("Inscrie id-ul comenzii:");
             String orderId = scanner.nextLine();
 
-            if (controllerOrders.isOrders(Integer.parseInt(orderId))){//verificare daca cmanda(orderul)exista
+            if (controllerOrders.isOrders(Integer.parseInt(orderId))){//verificare daca co2manda(orderul)exista
                 System.out.println("Inscrie cate bucati:");
                 String cantitate = scanner.nextLine();
 
