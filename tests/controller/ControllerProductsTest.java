@@ -41,258 +41,78 @@ class ControllerProductsTest {
 
 
     }
-}
-//    @Test
-//    public  void load(){
-//        ControllerProducts controllerProducts=new ControllerProducts("C:\\Users\\Kati\\Desktop\\Java_curs\\OOP\\Proiecte\\MagazinOnline\\src\\resurces\\products.txt");
-//    controllerProducts.load();
-//    controllerProducts.afiseaza();
-//    }
-//
-//}
-/*class ControllerBookTest {
-
-    private ControllerBook controllerBook;
-
-
-    @BeforeEach
-    public void preconditie() {
-
-        controllerBook = new ControllerBook("C:\\Users\\Kati\\Desktop\\Java_curs\\OOP\\Proiecte\\Aplicatie_ScoalaOnline\\src\\com\\company\\resources\\books.txt");
-    }
 
     @Test
-    public void returnpoz() {
-        System.out.println(controllerBook.poz(2));
-    }
+    public  void  updateName(){
+        Televizor televizor=new Televizor("1,televizor,2000,2,127inch,linux");
 
-
-    @Test
-    public void testLoad1() {
-        //Preconditie
-        Matematica matematica1 = new Matematica("4,1,Matematica de baza,2008,matematica,true,false,manual,V");
-        Matematica matematica2 = new Matematica("5,2,Geometrie,2017,matematica,true,false,manual,VII");
-        Matematica matematica3 = new Matematica("6,3,Algebra,2018,matematica,true,false,manual,VI");
-        Literatura literatura1 = new Literatura("7,4,Literatura romana,2000,literatura,true,false,romana,VI");
-        Literatura literatura2 = new Literatura("8,5,Literatura engleza,2010,literatura,true,false,engleza,XII");
-
-
-        //Actiune
-        controllerBook.adauga(matematica1);
-        controllerBook.adauga(matematica2);
-        controllerBook.adauga(matematica3);
-        controllerBook.adauga(literatura1);
-        controllerBook.adauga(literatura2);
-        controllerBook.toSaveFisier();
-
-        controllerBook.load();
+        //actiune
+        controllerProducts.adauga(televizor);
+        controllerProducts.saveFisier();
 
         //Rezultat
-        assertEquals(true, controllerBook.poz(4) != -1);
-        assertEquals(true, controllerBook.poz(5) != -1);
-        assertEquals(true, controllerBook.poz(6) != -1);
-        assertEquals(true, controllerBook.poz(7) != -1);
-        assertEquals(true, controllerBook.poz(8) != -1);
+        assertEquals(true,controllerProducts.poz(1)!=-1);
 
-        //Postconditie
-
-        controllerBook.stergeBook(4);
-        controllerBook.stergeBook(5);
-        controllerBook.stergeBook(6);
-        controllerBook.stergeBook(7);
-        controllerBook.stergeBook(8);
-
-        controllerBook.toSaveFisier();
-        controllerBook.load();
-        assertEquals(false, controllerBook.poz(4) != -1);
-        assertEquals(false, controllerBook.poz(5) != -1);
-        assertEquals(false, controllerBook.poz(6) != -1);
-        assertEquals(false, controllerBook.poz(7) != -1);
-        assertEquals(false, controllerBook.poz(8) != -1);
-
-
-
-
-    }
-
-    @Test
-    public void adauga() {
-        //preconditie
-        Matematica matematica1 = new Matematica("4,1,Matematica pentru avansati,2013,matematica,true,false,manual,XII");
-        Matematica matematica2 = new Matematica("5,2,Exercitii pt bacalaureat,2018,matematica,true,false,manual,XII");
-        Matematica matematica3 = new Matematica("6,3,Exercitii de logica,2019,matematica,true,false,manual,VII");
-        Literatura literatura1 = new Literatura("7,4,Literatura greaca,2000,literatura,true,false,grec,XI");
-        Literatura literatura2 = new Literatura("8,5,Mitologie,2000,literatura,true,false,romana,VII");
-
-//Actiune
-        controllerBook.adauga(matematica1);
-        controllerBook.adauga(matematica2);
-        controllerBook.adauga(matematica3);
-        controllerBook.adauga(literatura1);
-        controllerBook.adauga(literatura2);
-
-        controllerBook.toSaveFisier();
-
-//rezultat
-        assertEquals(true, controllerBook.isBook("Matematica pentru avansati"));
-        assertEquals(true, controllerBook.isBook("Exercitii pt bacalaureat"));
-        assertEquals(true, controllerBook.isBook("Exercitii de logica"));
-        assertEquals(true, controllerBook.isBook("Literatura greaca"));
-        assertEquals(true, controllerBook.isBook("Mitologie"));
-
-//postconditie
-
-        controllerBook.stergeBook(4);
-        controllerBook.stergeBook(5);
-        controllerBook.stergeBook(6);
-        controllerBook.stergeBook(7);
-        controllerBook.stergeBook(8);
-
-        controllerBook.toSaveFisier();
-
-        controllerBook.load();
-
-        assertEquals(false, controllerBook.poz(4) != -1);
-        assertEquals(false, controllerBook.poz(5) != -1);
-        assertEquals(false, controllerBook.poz(6) != -1);
-        assertEquals(false, controllerBook.poz(7) != -1);
-        assertEquals(false, controllerBook.poz(8) != -1);
-
-
-    }
-
-    @Test
-    public void toSave() {
-        //preconditie
-        Matematica matematica1 = new Matematica("4,1,Matematica pentru avansati,2013,matematica,true,false,manual,XII");
-        Matematica matematica2 = new Matematica("5,2,Exercitii pt bacalaureat,2018,matematica,true,false,manual,XII");
-        Matematica matematica3 = new Matematica("6,3,Exercitii de logica,2019,matematica,true,false,manual,VII");
-        Literatura literatura1 = new Literatura("7,4,Literatura greaca,2000,literatura,true,false,grec,XI");
-        Literatura literatura2 = new Literatura("8,5,Mitologie,2000,literatura,true,false,romana,VII");
-//Actiune
-        controllerBook.adauga(matematica1);
-        controllerBook.adauga(matematica2);
-        controllerBook.adauga(matematica3);
-        controllerBook.adauga(literatura1);
-        controllerBook.adauga(literatura2);
-
-        controllerBook.toSaveFisier();
-        //Rezultat
-
-        assertEquals(
-                "4,1,Matematica pentru avansati,2013,matematica,true,false,manual,XII\n" +
-                "5,2,Exercitii pt bacalaureat,2018,matematica,true,false,manual,XII\n" +
-                "6,3,Exercitii de logica,2019,matematica,true,false,manual,VII\n" +
-                "7,4,Literatura greaca,2000,literatura,true,false,grec,XI\n" +
-                "8,5,Mitologie,2000,literatura,true,false,romana,VII\n", controllerBook.toSave());
-
-///postconditie
-        controllerBook.stergeBook(4);
-        controllerBook.stergeBook(5);
-        controllerBook.stergeBook(6);
-        controllerBook.stergeBook(7);
-        controllerBook.stergeBook(8);
-
-        controllerBook.toSaveFisier();
-
-        controllerBook.load();
-
-        assertEquals(false, controllerBook.poz(4) != -1);
-        assertEquals(false, controllerBook.poz(5) != -1);
-        assertEquals(false, controllerBook.poz(6) != -1);
-        assertEquals(false, controllerBook.poz(7) != -1);
-        assertEquals(false, controllerBook.poz(8) != -1);
-
-    }
-
-    @Test
-    public void afisare() {
-        //Preconditie
-
-        Matematica matematica1 = new Matematica("4,1,Matematica pentru avansati,2013,matematica,true,false,manual,XII");
-        Matematica matematica2 = new Matematica("5,2,Exercitii pt bacalaureat,2018,matematica,true,false,manual,XII");
-        Matematica matematica3 = new Matematica("6,3,Exercitii de logica,2019,matematica,true,false,manual,VII");
-        Literatura literatura1 = new Literatura("7,4,Literatura greaca,2000,literatura,true,false,grec,XI");
-        Literatura literatura2 = new Literatura("8,5,Mitologie,2000,literatura,true,false,romana,VII");
-
-//Actiune
-        controllerBook.adauga(matematica1);
-        controllerBook.adauga(matematica2);
-        controllerBook.adauga(matematica3);
-        controllerBook.adauga(literatura1);
-        controllerBook.adauga(literatura2);
-
-        controllerBook.toSaveFisier();
-
-        controllerBook.afisare();
+        controllerProducts.updateName(1,"philips");
+        controllerProducts.saveFisier();
+        assertEquals("philips",televizor.getName());
 
         //postconditie
+        controllerProducts.stergeProduct(1);
+        controllerProducts.saveFisier();
+        load();
 
-        controllerBook.stergeBook(4);
-        controllerBook.stergeBook(5);
-        controllerBook.stergeBook(6);
-        controllerBook.stergeBook(7);
-        controllerBook.stergeBook(8);
+        assertEquals(false,controllerProducts.poz(1)!=-1);
+    }
 
-        controllerBook.toSaveFisier();
+    @Test
+    public void isProduct(){
+        Televizor televizor=new Televizor("1,televizor,2000,2,127inch,linux");
 
-        controllerBook.load();
+        controllerProducts.adauga(televizor);
+        controllerProducts.saveFisier();
 
-        assertEquals(false, controllerBook.poz(4) != -1);
-        assertEquals(false, controllerBook.poz(5) != -1);
-        assertEquals(false, controllerBook.poz(6) != -1);
-        assertEquals(false, controllerBook.poz(7) != -1);
-        assertEquals(false, controllerBook.poz(8) != -1);
+        assertEquals(true,controllerProducts.isProduct("televizor"));
+
+        controllerProducts.stergeProduct(1);
+        controllerProducts.saveFisier();
+        controllerProducts.load();
+        assertEquals(false,controllerProducts.poz(1)!=-1);
 
     }
 
     @Test
-    public void poz() {
-        //Preconditie
-        Matematica matematica1 = new Matematica("4,1,Matematica de baza,2008,matematica,true,false,manual,V");
-        Matematica matematica2 = new Matematica("5,2,Geometrie,2017,matematica,true,false,manual,VII");
-        Matematica matematica3 = new Matematica("6,3,Algebra,2018,matematica,true,false,manual,VI");
-        Literatura literatura1 = new Literatura("7,4,Literatura romana,2000,literatura,true,false,romana,VI");
-        Literatura literatura2 = new Literatura("8,5,Literatura engleza,2010,literatura,true,false,engleza,XII");
+    public  void returnProduct(){
+        Televizor televizor=new Televizor("1,televizor,2000,2,127inch,linux");
+        controllerProducts.adauga(televizor);
+        controllerProducts.saveFisier();
+
+        assertEquals(true,controllerProducts.poz(1)!=-1);
+
+        System.out.println(controllerProducts.returnProduct(1).descriere());
+        controllerProducts.stergeProduct(1);
+        controllerProducts.saveFisier();
+        controllerProducts.load();
+        assertEquals(false,controllerProducts.poz(1)!=-1);
 
 
-        //Actiune
-        controllerBook.adauga(matematica1);
-        controllerBook.adauga(matematica2);
-        controllerBook.adauga(matematica3);
-        controllerBook.adauga(literatura1);
-        controllerBook.adauga(literatura2);
-
-        controllerBook.toSaveFisier();
-
-        controllerBook.load();
+    }
 
 
+    @Test
+    public  void returnProductNume(){
+        Televizor televizor=new Televizor("1,televizor,2000,2,127inch,linux");
+        controllerProducts.adauga(televizor);
+        controllerProducts.saveFisier();
 
+        assertEquals(true,controllerProducts.poz(1)!=-1);
 
-        assertEquals(0, controllerBook.poz(4));
+        System.out.println(controllerProducts.returnProductNume("televizor").descriere());
+        controllerProducts.stergeProduct(1);
+        controllerProducts.saveFisier();
+        controllerProducts.load();
+        assertEquals(false,controllerProducts.poz(1)!=-1);
 
-        assertEquals(1, controllerBook.poz(5));
-        assertEquals(2, controllerBook.poz(6));
-        assertEquals(3, controllerBook.poz(7));
-        assertEquals(4, controllerBook.poz(8));
+    }
+}
 
-
-        //Postconditie
-
-        controllerBook.stergeBook(4);
-        controllerBook.stergeBook(5);
-        controllerBook.stergeBook(6);
-        controllerBook.stergeBook(7);
-        controllerBook.stergeBook(8);
-        controllerBook.toSaveFisier();
-        controllerBook.load();
-        assertEquals(false, controllerBook.poz(4) != -1);
-        assertEquals(false, controllerBook.poz(5) != -1);
-        assertEquals(false, controllerBook.poz(6) != -1);
-        assertEquals(false, controllerBook.poz(7) != -1);
-        assertEquals(false, controllerBook.poz(8) != -1);
-
-
-
-    }*/

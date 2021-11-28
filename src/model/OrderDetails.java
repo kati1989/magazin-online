@@ -8,6 +8,7 @@ public class OrderDetails {
     public int quantity;//mennyiseg
 
     public OrderDetails(){}
+
     public OrderDetails(int id,int orderId,int productId,int price,int quantity){
         this.id=id;
         this.orderId=orderId;
@@ -15,6 +16,7 @@ public class OrderDetails {
         this.price=price;
         this.quantity=quantity;
     }
+
     public  OrderDetails(String proprietati){
         this.id=Integer.parseInt(proprietati.split(",")[0]);
         this.orderId=Integer.parseInt(proprietati.split(",")[1]);

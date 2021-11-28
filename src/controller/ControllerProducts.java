@@ -19,7 +19,6 @@ public class ControllerProducts {
         products = new ArrayList<>();
         this.cale = cale;
         load();
-
     }
 
     public void load() {
@@ -97,94 +96,41 @@ public class ControllerProducts {
            }
        }
     }
-}
-/*
-  public void stergeCurs(String name) {
-        for (int i = 0; i < cursuri.size(); i++) {
-            if (cursuri.get(i).getName().equals(name)) {
-                cursuri.remove(cursuri.get(i));
-            }
-        }
+
+    public void updateName(int id,String name){
+       for(int i=0;i<products.size();i++){
+           if(products.get(i).getId()==id){
+               products.get(i).setName(name);
+           }
+       }
     }
 
-    public void toSaveFisier() {
-        File file = new File(cale);
-        try {
-            FileWriter w = new FileWriter(file);
-            PrintWriter p = new PrintWriter(w);
-            p.print(this.toSave());
-            p.close();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void updateName(String departament, String name) {
-        for (int i = 0; i < cursuri.size(); i++) {
-            if (cursuri.get(i).getDepartment().equals(departament)) {
-                cursuri.get(i).setName(name);
-            }
-        }
-    }
-
-    public boolean isCurs(String name) {
-        for (Curs c : cursuri) {
-            if (c.getName().equals(name)) {
-                return true;
-            }
-        }
+    public boolean isProduct(String name){
+       for(Products p:products){
+           if(p.getName().equals(name))
+               return  true;
+       }
         return false;
     }
 
-
-
-    public int poz(int id) {
-        for (int i = 0; i < cursuri.size(); i++) {
-            if (cursuri.get(i).getId() == id)
-                return i;
-        }
-        return -1;
-    }
-
-    public void sterge(int id){
-        for(int i=0;i< cursuri.size();i++){
-            if(cursuri.get(i).getId()==id)
-            {
-                cursuri.remove(i);
-            }
-        }
-    }
-
-    public Curs returnCurs(int cursId){
-        for(int i=0;i<cursuri.size();i++){
-            if(cursuri.get(i).getId()==cursId){
-                return cursuri.get(i);
-            }
-        }
-        return null;
-    }
-
-//ne da id-ul urmator
-    public int nextId(){
-
-           if(cursuri.size()>0){
-
-                Curs curs = cursuri.get(cursuri.size()-1);
-
-                return  curs.getId()+1;
+    public Products returnProduct(int productId){
+       for(int i=0;i<products.size();i++){
+           if(products.get(i).getId()==productId)
+           {
+               return products.get(i);
            }
 
-           return 1;
+       }
+       return null;
     }
 
-    //SE da caparametru numele cursului si se returneaza cursul
-    public Curs returnCursDupaNume(String nume){
-        for(int i=0;i<cursuri.size();i++){
-            if(cursuri.get(i).getName().equals(nume)){
-                return cursuri.get(i);
-            }
-        }
-        return  null;
+    public  Products returnProductNume(String nume){
+       for(int i=0;i<products.size();i++){
+           if(products.get(i).getName().equals(nume)){
+               return  products.get(i);
+           }
+       }
+       return  null;
     }
-*/
+
+}

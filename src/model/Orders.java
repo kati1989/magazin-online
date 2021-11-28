@@ -1,5 +1,5 @@
 package model;
-
+//order=rendeles,ammount==osszeg
 public class Orders {
     private int id;
     //penz osszeg
